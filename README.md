@@ -53,6 +53,21 @@ AutoHedge relies on OpenAI models through the `swarms` dependency, so the
 `OPENAI_API_KEY` environment variable must be available before running any
 examples. To set the key for your current shell session, run:
 
+> **¿Qué API key necesito?** Usa una API key de OpenAI (https://platform.openai.com/),
+> generada desde tu cuenta. No sirve una clave distinta (por ejemplo, de otros
+> proveedores) porque AutoHedge llama directamente a la API de OpenAI.
+
+**Cómo obtenerla** (en OpenAI):
+1. Crea o inicia sesión en tu cuenta de OpenAI en https://platform.openai.com/.
+2. Ve a **API Keys** y haz clic en **Create new secret key**.
+3. Copia la clave (empieza por `sk-`) y guárdala en un lugar seguro; no se
+   muestra de nuevo.
+4. Asegúrate de tener crédito o facturación activa para que las llamadas a la
+   API funcionen.
+
+Con la clave ya generada, puedes exponerla como variable de entorno. Por ejemplo,
+para tu sesión de shell actual ejecuta:
+
 ```bash
 export OPENAI_API_KEY="sk-your-key"
 ```
