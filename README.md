@@ -49,24 +49,19 @@ WORKSPACE_DIR="agent_workspace"
 
 #### API key setup
 
-AutoHedge relies on OpenAI models through the `swarms` dependency, so the
-`OPENAI_API_KEY` environment variable must be available before running any
-examples. To set the key for your current shell session, run:
+AutoHedge calls OpenAI models through the `swarms` dependency. You must provide
+an **OpenAI API key**—keys from other providers will not work—via the
+`OPENAI_API_KEY` environment variable before running any examples. To obtain a
+key:
 
-> **¿Qué API key necesito?** Usa una API key de OpenAI (https://platform.openai.com/),
-> generada desde tu cuenta. No sirve una clave distinta (por ejemplo, de otros
-> proveedores) porque AutoHedge llama directamente a la API de OpenAI.
+1. Sign in to https://platform.openai.com/ (create an account if needed).
+2. Navigate to **API Keys** and click **Create new secret key**.
+3. Copy the generated key (it starts with `sk-`) and store it securely; it will
+   not be shown again.
+4. Ensure your OpenAI account has billing enabled or available credit so API
+   calls succeed.
 
-**Cómo obtenerla** (en OpenAI):
-1. Crea o inicia sesión en tu cuenta de OpenAI en https://platform.openai.com/.
-2. Ve a **API Keys** y haz clic en **Create new secret key**.
-3. Copia la clave (empieza por `sk-`) y guárdala en un lugar seguro; no se
-   muestra de nuevo.
-4. Asegúrate de tener crédito o facturación activa para que las llamadas a la
-   API funcionen.
-
-Con la clave ya generada, puedes exponerla como variable de entorno. Por ejemplo,
-para tu sesión de shell actual ejecuta:
+With the key in hand, set it for your current shell session:
 
 ```bash
 export OPENAI_API_KEY="sk-your-key"
@@ -78,12 +73,12 @@ On Windows Command Prompt, use:
 set OPENAI_API_KEY=sk-your-key
 ```
 
-If you prefer a `.env` file, create one in the project root that includes the
-same `OPENAI_API_KEY` entry and load it with a tool like `python-dotenv` or your
-shell's dotenv loader before starting AutoHedge. You can verify the key is set
-by running `python -c "import os; print(os.getenv('OPENAI_API_KEY'))"`; it
-should print your key (or start with `sk-`). Without this variable, calls to
-OpenAI will fail and the agents will not run.
+If you prefer a `.env` file, create one in the project root with the same
+`OPENAI_API_KEY` entry and load it using `python-dotenv` or your shell's dotenv
+loader before starting AutoHedge. You can verify the variable is set by running
+`python -c "import os; print(os.getenv('OPENAI_API_KEY'))"`; it should print your
+key (starting with `sk-`). Without this variable, OpenAI requests will fail and
+the agents will not run.
 
 ### Basic Usage
 
